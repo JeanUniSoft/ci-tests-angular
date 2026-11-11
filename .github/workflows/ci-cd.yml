@@ -1,11 +1,11 @@
-cd:
-  on:
-    push:
-      branches: [main]
-    pull_request:
-      branches: [main]
+name: CI/CD
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
-  jobs:
+jobs:
     ci:
       runs-on: ubuntu-latest
       steps:
