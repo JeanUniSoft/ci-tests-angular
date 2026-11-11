@@ -1,0 +1,8 @@
+<h1>Registro</h1>
+
+<form [formGroup]="formulario" (ngSubmit)="registrar()">
+    <input formControlName="nombre" placeholder="Nombre">
+    <input formControlName="email" type="email" placeholder="Email">
+    <input formControlName="password" type="password" placeholder="Password">
+    <button type="submit" [disabled]="formulario.invalid">Registrar</button>
+</form>
