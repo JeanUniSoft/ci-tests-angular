@@ -22,7 +22,7 @@ jobs:
           run: npx ng test --watch=false
 
         - name: Build
-          run: npx ng Build
+          run: npx ng build
 
         - name: Subir artifact
           uses: actions/upload-artifact@v6
