@@ -1,0 +1,31 @@
+cd:
+  on:
+    push:
+      branches: [main]
+    pull_request:
+      branches: [main]
+
+  jobs:
+    ci:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v6
+
+        - uses: actions/setip-node@v6
+          with:
+            node-version: 22
+            cache: npm
+
+        - run: npm ci
+
+        - name: Pruebas
+          run: npx ng test --watch=false
+
+        - name: Build
+          run: npx ng Build
+
+        - name: Subir artifact
+          uses: actions/upload-artifact@v6
+          with:
+            name: formulario-ci-build
+            path: dist/formulario-ci/browser
